@@ -321,7 +321,7 @@ paths:
           content:
             application/json:
               schema:
-                /components/schemas/Component"
+                $ref: "#/components/schemas/Component"
     delete:
       operationId: deleteComponent
       summary: Видалити компонент за ID
@@ -404,6 +404,74 @@ paths:
                     type: string
                     description: Статус операції
                     example: unlinked
+  /weather/current:
+    get:
+      operationId: getCurrentWeather
+      summary: Отримати поточні погодні дані
+      parameters:
+        - name: city
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Назва міста
+            example: London
+      responses:
+        "200":
+          description: Поточні погодні дані успішно отримані
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  weather:
+                    type: string
+                    description: Опис погоди
+                    example: clear sky
+                  temperature:
+                    type: number
+                    description: Температура в градусах Цельсія
+                    example: 20.5
+  /astrology/forecast:
+    get:
+      operationId: getAstrologicalForecast
+      summary: Отримати астрологічний прогноз
+      parameters:
+        - name: sign
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Знак зодіаку
+            example: aries
+      responses:
+        "200":
+          description: Астрологічний прогноз успішно отриманий
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  forecast:
+                    type: string
+                    description: Опис астрологічного прогнозу
+                    example: Today is a good day for new beginnings.
+  /time/current:
+    get:
+      operationId: getCurrentTime
+      summary: Отримати поточний час
+      responses:
+        "200":
+          description: Поточний час успішно отриманий
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  time:
+                    type: string
+                    description: Поточний час
+                    example: 2023-09-15T12:34:56Z
 components:
   schemas:
     Component:
@@ -436,4 +504,3 @@ components:
           type: string
           description: Значення атрибуту
           example: значення-1
-
