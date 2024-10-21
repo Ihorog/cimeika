@@ -472,6 +472,58 @@ paths:
                     type: string
                     description: Поточний час
                     example: 2023-09-15T12:34:56Z
+  /data/weather:
+    get:
+      operationId: getWeatherData
+      summary: Отримати погодні дані
+      parameters:
+        - name: city
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Назва міста
+            example: London
+      responses:
+        "200":
+          description: Погодні дані успішно отримані
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  weather:
+                    type: string
+                    description: Опис погоди
+                    example: clear sky
+                  temperature:
+                    type: number
+                    description: Температура в градусах Цельсія
+                    example: 20.5
+  /data/astrology:
+    get:
+      operationId: getAstrologyData
+      summary: Отримати астрологічні дані
+      parameters:
+        - name: sign
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Знак зодіаку
+            example: aries
+      responses:
+        "200":
+          description: Астрологічні дані успішно отримані
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  forecast:
+                    type: string
+                    description: Опис астрологічного прогнозу
+                    example: Today is a good day for new beginnings.
 components:
   schemas:
     Component:
