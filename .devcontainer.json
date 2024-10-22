@@ -1,0 +1,23 @@
+{
+  "name": "Cimeika Development Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.9"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-21-jdk && chmod +x gradlew && ./gradlew build",
+  "forwardPorts": [3000],
+  "remoteUser": "vscode"
+}
