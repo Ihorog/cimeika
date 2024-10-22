@@ -11,6 +11,7 @@ paths:
     post:
       operationId: createChatCompletion
       summary: Створення запиту до GPT для відповіді у чаті
+      description: Endpoint для створення запиту до GPT для отримання відповіді у чаті
       requestBody:
         required: true
         content:
@@ -404,6 +405,25 @@ paths:
                     type: string
                     description: Статус операції
                     example: unlinked
+  /components/{id}/attributes:
+    get:
+      operationId: getComponentAttributes
+      summary: Отримати атрибути компоненту за ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Атрибути компоненту успішно отримані
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Attribute"
   /weather/current:
     get:
       operationId: getCurrentWeather
