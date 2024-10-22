@@ -1,11 +1,11 @@
 {
-    "OpenAI_Ci": "sk-NEWVALUEFOROPENAIKEY",
+    "OpenAI_Ci": "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",
     "OpenAI_Cimeika": "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",
     "GitHub": "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",
     "Telegram": "YOUR_TELEGRAM_BOT_API_KEY",
     "ADM.Tools": "YOUR_ADM_TOOLS_API_KEY",
     "Microsoft": "YOUR_MICROSOFT_API_KEY",
-    "OpenWeatherMap": "0dd0656884eea8329f4f432cc0bc8010",
+    "OpenWeatherMap": "0dd0656884eea8329f4f432chc0bc8010",
     "FreeAstrologyAPI": "SI4I4N5GJ32gRX5iSL1Qea4TqgDtIy8o9RyvDfxW",
     "Unsplash": "UwbQXC6GqaH6gQ-Qr0UO0o0BeyLHnYnwSP3XfYjapmo"
 }
