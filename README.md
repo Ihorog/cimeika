@@ -21,3 +21,18 @@ It is important to have the required Gradle files in the repository to ensure th
 ## Photos Folder
 
 A new folder named `photos` has been created in the root directory for storing photos and images. Please use this folder to store all your photos and images.
+
+## Database Setup
+
+To configure the database for the project, follow these steps:
+
+1. Open the `src/main/resources/application.properties` file.
+2. Add the following configuration settings:
+   ```properties
+   spring.datasource.url=jdbc:h2:mem:testdb
+   spring.datasource.driverClassName=org.h2.Driver
+   spring.datasource.username=sa
+   spring.datasource.password=password
+   spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+   ```
+3. This configuration uses an H2 in-memory database for development purposes.
