@@ -17,3 +17,7 @@ To set up JDK 21 for the project, follow these steps:
 ### Importance of Required Gradle Files
 
 It is important to have the required Gradle files in the repository to ensure the setup process completes successfully. The `setup-java` action attempts to cache Gradle files, and if no matching files are found, the setup process will fail.
+
+## Photos Folder
+
+A new folder named `photos` has been created in the root directory for storing photos and images. Please use this folder to store all your photos and images.
