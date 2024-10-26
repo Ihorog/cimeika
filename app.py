@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 import requests
 
@@ -9,7 +10,7 @@ def home():
 
 @app.route('/data/weather')
 def get_weather():
-    api_key = "0dd0656884eea8329f4f432cc0bc8010"
+    api_key = os.getenv('OPENWEATHERMAP_API_KEY')
     city = "London"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     response = requests.get(url)
@@ -26,7 +27,7 @@ def get_time():
 
 @app.route('/data/astrology')
 def get_astrology():
-    api_key = "SI4I4N5GJ32gRX5iSL1Qea4TqgDtIy8o9RyvDfxW"
+    api_key = os.getenv('FREEASTROLOGYAPI_API_KEY')
     sign = "aries"
     url = f"https://api.freeastrologyapi.com/forecast?sign={sign}&apikey={api_key}"
     response = requests.get(url)

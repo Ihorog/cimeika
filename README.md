@@ -78,6 +78,32 @@ It is important to have the required Gradle files in the repository to ensure th
 
 By following these detailed steps, you can ensure that the required Gradle files are present in your project and that your GitHub Actions workflow is correctly configured to use them.
 
+## Setting Environment Variables for API Keys
+
+To improve security, replace hardcoded API keys with environment variables. Follow these steps to set up environment variables for API keys:
+
+1. **Set Environment Variables in Dockerfile**: Ensure that the `Dockerfile` sets the environment variables for the API keys. Here is an example:
+   ```dockerfile
+   # Set environment variables for API keys
+   ENV OPENWEATHERMAP_API_KEY=""
+   ENV FREEASTROLOGYAPI_API_KEY=""
+   ```
+
+2. **Use Environment Variables in `app.py`**: Update the `app.py` file to use the environment variables for the API keys. Here is an example:
+   ```python
+   import os
+
+   api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+   ```
+
+3. **Set Environment Variables Locally**: When running the application locally, set the environment variables in your terminal or development environment. Here is an example for setting environment variables in a Unix-based terminal:
+   ```sh
+   export OPENWEATHERMAP_API_KEY="your_openweathermap_api_key"
+   export FREEASTROLOGYAPI_API_KEY="your_freeastrologyapi_api_key"
+   ```
+
+By following these steps, you can ensure that the API keys are securely managed using environment variables.
+
 ## Verifying Component Dependencies
 
 To verify the dependencies of all components, you can use the new `/components/verify` endpoint. This endpoint checks all component dependencies and returns a status indicating whether the dependencies are verified.

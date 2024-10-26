@@ -4,6 +4,10 @@ FROM python:3.9-slim
 # Install openjdk-21-jdk and gradle
 RUN apt-get update && apt-get install -y openjdk-21-jdk gradle
 
+# Set environment variables for API keys
+ENV OPENWEATHERMAP_API_KEY=""
+ENV FREEASTROLOGYAPI_API_KEY=""
+
 # Copy requirements.txt and install dependencies
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
