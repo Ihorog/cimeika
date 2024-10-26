@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y openjdk-21-jdk gradle
 # Set environment variables for API keys
 ENV OPENWEATHERMAP_API_KEY=""
 ENV FREEASTROLOGYAPI_API_KEY=""
+ENV MULTICHANNEL_API_KEY=""
 
 # Copy requirements.txt and install dependencies
 COPY requirements.txt /app/requirements.txt
@@ -17,6 +18,9 @@ COPY . /app
 
 # Copy the gradlew script to the /app directory
 COPY gradlew /app/gradlew
+
+# Grant execute permission for gradlew
+RUN chmod +x /app/gradlew
 
 # Run the Flask app using gradlew
 RUN ./gradlew run

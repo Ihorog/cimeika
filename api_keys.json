@@ -7,5 +7,6 @@
     "Microsoft": "${{ os.getenv('MICROSOFT_API_KEY') }}",
     "OpenWeatherMap": "${{ os.getenv('OPENWEATHERMAP_API_KEY') }}",
     "FreeAstrologyAPI": "${{ os.getenv('FREEASTROLOGYAPI_API_KEY') }}",
-    "Unsplash": "${{ os.getenv('UNSPLASH_API_KEY') }}"
+    "Unsplash": "${{ os.getenv('UNSPLASH_API_KEY') }}",
+    "Multichannel": "${{ os.getenv('MULTICHANNEL_API_KEY') }}"
 }
