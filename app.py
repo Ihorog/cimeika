@@ -13,6 +13,8 @@ def get_weather():
     city = "London"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     response = requests.get(url)
+    if response.status_code != 200:
+        return jsonify({"error": "Failed to fetch weather data"}), response.status_code
     data = response.json()
     return jsonify(data)
 
@@ -28,6 +30,8 @@ def get_astrology():
     sign = "aries"
     url = f"https://api.freeastrologyapi.com/forecast?sign={sign}&apikey={api_key}"
     response = requests.get(url)
+    if response.status_code != 200:
+        return jsonify({"error": "Failed to fetch astrology data"}), response.status_code
     data = response.json()
     return jsonify(data)
 
