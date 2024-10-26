@@ -219,3 +219,52 @@ def get_weather():
 ```
 
 By using caching, the application can reduce the number of requests to external APIs and improve response times for frequently accessed endpoints.
+
+## Multichannel Data Endpoint
+
+The application now includes a new endpoint `/data/multichannel` to handle multichannel data requests. This endpoint fetches and processes multichannel data, uses caching to optimize performance, and logs the success or failure of data requests.
+
+### Using the Multichannel Data Endpoint
+
+1. **Endpoint URL**: `/data/multichannel`
+2. **Method**: GET
+3. **Response**: JSON object containing the multichannel data.
+
+### Example Request
+
+```sh
+curl -X GET "http://localhost:8000/data/multichannel"
+```
+
+### Example Response
+
+```json
+{
+  "channel1": "data1",
+  "channel2": "data2",
+  "channel3": "data3"
+}
+```
+
+By using this endpoint, you can fetch and process multichannel data efficiently.
+
+### Example Code for Multichannel Data Endpoint
+
+The `get_multichannel_data` function is implemented in the `app.py` file as follows:
+
+```python
+@app.route('/data/multichannel')
+@cache_response
+def get_multichannel_data():
+    api_key = os.getenv('MULTICHANNEL_API_KEY')
+    url = f"https://api.multichannel.com/data?apikey={api_key}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        logger.error("Failed to fetch multichannel data")
+        return jsonify({"error": "Failed to fetch multichannel data"}), response.status_code
+    data = response.json()
+    logger.info("Multichannel data fetched successfully")
+    return jsonify(data)
+```
+
+By following these steps, you can ensure that the multichannel data endpoint is correctly implemented and optimized for performance.
