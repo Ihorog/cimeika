@@ -77,3 +77,30 @@ It is important to have the required Gradle files in the repository to ensure th
    ```
 
 By following these detailed steps, you can ensure that the required Gradle files are present in your project and that your GitHub Actions workflow is correctly configured to use them.
+
+## Verifying Component Dependencies
+
+To verify the dependencies of all components, you can use the new `/components/verify` endpoint. This endpoint checks all component dependencies and returns a status indicating whether the dependencies are verified.
+
+### Using the `/components/verify` Endpoint
+
+1. **Endpoint URL**: `/components/verify`
+2. **Method**: GET
+3. **Response**:
+   - `dependencies_verified`: A boolean indicating whether the dependencies are verified.
+
+### Example Request
+
+```sh
+curl -X GET "http://localhost:8000/components/verify"
+```
+
+### Example Response
+
+```json
+{
+  "dependencies_verified": true
+}
+```
+
+By using this endpoint, you can ensure that all component dependencies are verified and functioning correctly.
