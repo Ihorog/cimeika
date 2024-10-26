@@ -167,3 +167,47 @@ By analyzing the logs, you can identify and fix errors, optimize performance, an
 4. **Monitor Improvements**: Continue to monitor the logs to ensure that the implemented fixes have resolved the issues and improved performance.
 
 By following these steps, you can continuously optimize the code and enhance the application's reliability and performance.
+
+## Caching Functionality
+
+The application now includes caching functionality to improve performance and reduce the load on external APIs. The `flask-caching` library is used to cache the responses of the weather and astrology endpoints for 10 minutes.
+
+### Using the Caching Functionality
+
+1. **Weather Data Caching**: The `/data/weather` endpoint caches the weather data for 10 minutes.
+2. **Astrology Data Caching**: The `/data/astrology` endpoint caches the astrology data for 10 minutes.
+
+### Example Cache Configuration
+
+The cache is configured in the `app.py` file as follows:
+
+```python
+from flask_caching import Cache
+
+app = Flask(__name__)
+
+# Configure caching
+cache = Cache(app, config={'CACHE_TYPE': 'simple', 'CACHE_DEFAULT_TIMEOUT': 600})
+```
+
+### Example Cached Endpoint
+
+The `get_weather` function is decorated with a caching decorator to cache the response:
+
+```python
+@app.route('/data/weather')
+@cache_response
+def get_weather():
+    api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+    city = "London"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        logger.error("Failed to fetch weather data")
+        return jsonify({"error": "Failed to fetch weather data"}), response.status_code
+    data = response.json()
+    logger.info("Weather data fetched successfully")
+    return jsonify(data)
+```
+
+By using caching, the application can reduce the number of requests to external APIs and improve response times for frequently accessed endpoints.

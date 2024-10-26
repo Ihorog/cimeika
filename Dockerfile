@@ -8,9 +8,6 @@ RUN apt-get update && apt-get install -y openjdk-21-jdk gradle
 ENV OPENWEATHERMAP_API_KEY=""
 ENV FREEASTROLOGYAPI_API_KEY=""
 
-# Install necessary logging libraries
-RUN pip install --no-cache-dir logging
-
 # Copy requirements.txt and install dependencies
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
