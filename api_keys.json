@@ -5,7 +5,7 @@
     "Telegram": "${{ secrets.TELEGRAM_BOT_API_KEY }}",
     "ADM.Tools": "${{ secrets.ADM_TOOLS_API_KEY }}",
     "Microsoft": "${{ secrets.MICROSOFT_API_KEY }}",
-    "OpenWeatherMap": "${{ secrets.OPENWEATHERMAP_API_KEY }}",
-    "FreeAstrologyAPI": "${{ secrets.FREEASTROLOGYAPI_API_KEY }}",
+    "OpenWeatherMap": "${{ os.getenv('OPENWEATHERMAP_API_KEY') }}",
+    "FreeAstrologyAPI": "${{ os.getenv('FREEASTROLOGYAPI_API_KEY') }}",
     "Unsplash": "${{ secrets.UNSPLASH_API_KEY }}"
 }

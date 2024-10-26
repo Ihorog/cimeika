@@ -102,6 +102,14 @@ To improve security, replace hardcoded API keys with environment variables. Foll
    export FREEASTROLOGYAPI_API_KEY="your_freeastrologyapi_api_key"
    ```
 
+4. **Update `api_keys.json`**: Ensure that the `api_keys.json` file uses environment variables for API keys. Here is an example:
+   ```json
+   {
+       "OpenWeatherMap": "${{ os.getenv('OPENWEATHERMAP_API_KEY') }}",
+       "FreeAstrologyAPI": "${{ os.getenv('FREEASTROLOGYAPI_API_KEY') }}"
+   }
+   ```
+
 By following these steps, you can ensure that the API keys are securely managed using environment variables.
 
 ## Verifying Component Dependencies
