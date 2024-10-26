@@ -17,14 +17,14 @@ jobs:
     - name: Ensure required Gradle files are present
       run: |
         if [ ! -f "build.gradle" ] || [ ! -f "settings.gradle" ]; then
-          echo "Required Gradle files are missing"
+          echo "Required Gradle files are missing. Please ensure that both build.gradle and settings.gradle are present in the root directory."
           exit 1
         fi
 
     - name: Ensure actual gradlew file is present
       run: |
         if [ ! -f "gradlew" ]; then
-          echo "gradlew file is missing"
+          echo "gradlew file is missing. Please ensure that the gradlew file is present in the root directory."
           exit 1
         fi
 
@@ -43,3 +43,15 @@ jobs:
 
     - name: Run unit tests
       run: ./gradlew test
+
+    - name: Notify on success
+      if: success()
+      run: echo "Build succeeded! Notifying stakeholders..."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Notify on failure
+      if: failure()
+      run: echo "Build failed! Notifying stakeholders..."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
