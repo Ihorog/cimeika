@@ -79,5 +79,18 @@ def log_data():
     logger.info(f"Data logged successfully: {data_id}, {log_details}")
     return jsonify({"status": "success"})
 
+@app.route('/data/multichannel')
+@cache_response
+def get_multichannel_data():
+    api_key = os.getenv('MULTICHANNEL_API_KEY')
+    url = f"https://api.multichannel.com/data?apikey={api_key}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        logger.error("Failed to fetch multichannel data")
+        return jsonify({"error": "Failed to fetch multichannel data"}), response.status_code
+    data = response.json()
+    logger.info("Multichannel data fetched successfully")
+    return jsonify(data)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
