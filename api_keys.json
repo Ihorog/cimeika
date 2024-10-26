@@ -1,11 +1,11 @@
 {
-    "OpenAI_Ci": "${{ secrets.OPENAI_CI_API_KEY }}",
-    "OpenAI_Cimeika": "${{ secrets.OPENAI_CIMEIKA_API_KEY }}",
-    "GitHub": "${{ secrets.GITHUB_API_KEY }}",
-    "Telegram": "${{ secrets.TELEGRAM_BOT_API_KEY }}",
-    "ADM.Tools": "${{ secrets.ADM_TOOLS_API_KEY }}",
-    "Microsoft": "${{ secrets.MICROSOFT_API_KEY }}",
+    "OpenAI_Ci": "${{ os.getenv('OPENAI_CI_API_KEY') }}",
+    "OpenAI_Cimeika": "${{ os.getenv('OPENAI_CIMEIKA_API_KEY') }}",
+    "GitHub": "${{ os.getenv('GITHUB_API_KEY') }}",
+    "Telegram": "${{ os.getenv('TELEGRAM_BOT_API_KEY') }}",
+    "ADM.Tools": "${{ os.getenv('ADM_TOOLS_API_KEY') }}",
+    "Microsoft": "${{ os.getenv('MICROSOFT_API_KEY') }}",
     "OpenWeatherMap": "${{ os.getenv('OPENWEATHERMAP_API_KEY') }}",
     "FreeAstrologyAPI": "${{ os.getenv('FREEASTROLOGYAPI_API_KEY') }}",
-    "Unsplash": "${{ secrets.UNSPLASH_API_KEY }}"
+    "Unsplash": "${{ os.getenv('UNSPLASH_API_KEY') }}"
 }
