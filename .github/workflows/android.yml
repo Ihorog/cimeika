@@ -21,9 +21,6 @@ jobs:
           exit 1
         fi
 
-    - name: Create dummy gradlew file
-      run: echo "dummy gradlew file" > gradlew
-
     - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
