@@ -130,3 +130,40 @@ curl -X GET "http://localhost:8000/components/verify"
 ```
 
 By using this endpoint, you can ensure that all component dependencies are verified and functioning correctly.
+
+## Logging Functionality
+
+The application now includes logging functionality to capture the success or failure of data collection operations. This helps in monitoring and debugging the application.
+
+### Using the Logging Functionality
+
+1. **Weather Data Collection**: Logs the success or failure of fetching weather data.
+2. **Astrology Data Collection**: Logs the success or failure of fetching astrology data.
+3. **Logging Collected Data**: The `/data/log` endpoint allows logging of collected data.
+
+### Example Log Messages
+
+- **Weather Data Collection**:
+  - Success: "Weather data fetched successfully"
+  - Failure: "Failed to fetch weather data"
+
+- **Astrology Data Collection**:
+  - Success: "Astrology data fetched successfully"
+  - Failure: "Failed to fetch astrology data"
+
+- **Logging Collected Data**:
+  - Success: "Data logged successfully: {dataId}, {logDetails}"
+  - Failure: "Invalid log data"
+
+## Optimizing Code Based on Logs
+
+By analyzing the logs, you can identify and fix errors, optimize performance, and improve the overall reliability of the application.
+
+### Steps to Optimize Code Based on Logs
+
+1. **Identify Errors**: Review the log messages to identify any errors or failures in data collection or other operations.
+2. **Analyze Performance**: Look for patterns in the logs that indicate performance bottlenecks or inefficiencies.
+3. **Implement Fixes**: Based on the analysis, implement fixes to address the identified issues.
+4. **Monitor Improvements**: Continue to monitor the logs to ensure that the implemented fixes have resolved the issues and improved performance.
+
+By following these steps, you can continuously optimize the code and enhance the application's reliability and performance.
