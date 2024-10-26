@@ -18,5 +18,8 @@ COPY . /app
 # Copy the gradlew script to the /app directory
 COPY gradlew /app/gradlew
 
+# Run the Flask app using gradlew
+RUN ./gradlew run
+
 # Set the entry point to run the Flask app
 CMD ["python", "/app/app.py"]
