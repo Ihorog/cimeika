@@ -544,6 +544,22 @@ paths:
                     type: string
                     description: Опис астрологічного прогнозу
                     example: Today is a good day for new beginnings.
+  /components/verify:
+    get:
+      operationId: verifyComponents
+      summary: Перевірити залежності компонентів
+      responses:
+        "200":
+          description: Залежності компонентів успішно перевірені
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dependencies_verified:
+                    type: boolean
+                    description: Статус перевірки залежностей
+                    example: true
 components:
   schemas:
     Component:
