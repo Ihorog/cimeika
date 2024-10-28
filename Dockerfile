@@ -8,5 +8,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy the application code
 COPY . /app
 
+# Copy the .env file
+COPY .env /app/.env
+
 # Set the entry point to run the Flask app
-CMD ["python", "/app/app.py"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
