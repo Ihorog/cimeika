@@ -11,5 +11,9 @@ COPY . /app
 # Copy the .env file
 COPY .env /app/.env
 
+# Set environment variables for API keys
+ENV OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
+ENV FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+
 # Set the entry point to run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
+CMD ["python", "/app/app.py"]
