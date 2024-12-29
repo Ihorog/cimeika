@@ -8,6 +8,12 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
+# Install openjdk-21-jdk
+RUN apt-get update && apt-get install -y openjdk-21-jdk
+
+# Install gradle
+RUN apt-get update && apt-get install -y gradle
+
 # Copy the application code
 COPY . /app
 
