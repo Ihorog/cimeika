@@ -104,3 +104,15 @@ The calendar management and gallery integration features help users manage their
 #### Instructions for Use:
 - **Calendar**: Use the calendar to add and manage events, synchronize with other services, and set reminders.
 - **Gallery**: Upload and organize images, create albums for events, and plan exhibitions.
+
+## Setting up GitHub Pages for Cimeika
+
+To set up GitHub Pages for the Cimeika project, follow these steps:
+
+1. Go to the repository settings on GitHub.
+2. Scroll down to the "GitHub Pages" section.
+3. Under "Source", select the branch you want to use for GitHub Pages (e.g., `main`).
+4. Click "Save".
+5. Your site will be published at `https://<username>.github.io/<repository-name>/`.
+
+By following these steps, you can easily set up GitHub Pages to host the Cimeika project and make it accessible online.
