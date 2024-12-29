@@ -60,3 +60,36 @@ function toggleDetails(button) {
         button.textContent = "Згорнути";
     }
 }
+
+// Function to fetch and display real-time weather data using the OpenWeatherMap API
+function fetchWeatherData() {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=your_openweathermap_api_key')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('weather-data').textContent = `${data.weather[0].description}, ${data.main.temp}°C`;
+        })
+        .catch(error => console.error('Error fetching weather data:', error));
+}
+
+// Function to fetch and display real-time time data
+function fetchTimeData() {
+    setInterval(() => {
+        const now = new Date();
+        document.getElementById('time-data').textContent = now.toLocaleTimeString();
+    }, 1000);
+}
+
+// Function to fetch and display real-time astrological data using the FreeAstrologyAPI
+function fetchAstrologyData() {
+    fetch('https://api.freeastrologyapi.com/forecast?sign=aries&apikey=your_freeastrologyapi_api_key')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('astrology-data').textContent = data.forecast;
+        })
+        .catch(error => console.error('Error fetching astrological data:', error));
+}
+
+// Call the functions to fetch and display real-time data
+fetchWeatherData();
+fetchTimeData();
+fetchAstrologyData();

@@ -109,3 +109,30 @@ section img {
     border-radius: 10px;
     margin-bottom: 15px;
 }
+
+/* Стилі для секції real-time-data */
+#real-time-data {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#real-time-data div {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#real-time-data h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#real-time-data p {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
