@@ -1,48 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cimeika</title>
+    <title>Cimeika 2.0</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Логотип Ci як посилання на головну сторінку -->
     <header>
-        <nav>
+        <a href="index.html">
+            <img src="https://raw.githubusercontent.com/Ihorog/media/main/Ci.png" alt="Ci Logo" class="ci-logo">
+        </a>
+        <!-- Навігаційне меню -->
+        <nav class="main-nav">
             <ul>
-                <li><a href="pages/home.html">Home</a></li>
-                <li><a href="pages/event.html">Event</a></li>
-                <li><a href="pages/gallery.html">Gallery</a></li>
-                <li><a href="pages/mood.html">Mood</a></li>
-                <li><a href="pages/child.html">Child</a></li>
-                <li><a href="pages/calendar.html">Calendar</a></li>
-                <li><a href="pages/ci.html">Ci</a></li>
+                <li><a href="#ci">Ci - Центральний інтелектуальний асистент</a></li>
+                <li><a href="#podija">ПоДія - Планування та організація</a></li>
+                <li><a href="#nastriy">Настрій - Емоційна підтримка</a></li>
+                <li><a href="#malya">Маля - Творчий розвиток</a></li>
+                <li><a href="#calendar">Календар - Управління часом</a></li>
+                <li><a href="#gallery">Галерея - Зберігання візуального контенту</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Основний контент -->
     <main>
-        <h1>Welcome to Cimeika</h1>
-        <p>Your journey to a connected and intelligent life starts here.</p>
-        <button onclick="startJourney()">Start Journey</button>
-        <section class="real-time-data">
-            <h2>Real-Time Data</h2>
-            <div id="weather">
-                <h3>Weather</h3>
-                <p id="weather-data">Loading...</p>
-            </div>
-            <div id="time">
-                <h3>Time</h3>
-                <p id="time-data">Loading...</p>
-            </div>
-            <div id="astrology">
-                <h3>Astrological Forecast</h3>
-                <p id="astrology-data">Loading...</p>
+        <section id="ci">
+            <h2>Ci - Центральний інтелектуальний асистент</h2>
+            <img src="https://raw.githubusercontent.com/Ihorog/media/main/Ci.png" alt="Ci Logo">
+            <p>Основний координатор та інтерфейс взаємодії з усіма елементами Cimeika. Ci допомагає користувачу здійснювати навігацію між модулами, відповідає на запити та пропонує рекомендації.</p>
+            <button class="toggle-btn" onclick="toggleDetails(this)">Детальніше</button>
+            <div class="details">
+                <p><strong>Інтерактивність:</strong> Ci доступний через логотип у всіх розділах платформи, і його функціонал викликається як через веб-додаток, так і через Telegram-бот.</p>
+                <p><strong>Завдання:</strong> Підтримка користувача на кожному кроці, автоматизація задач, інтеграція з календарем та іншими інструментами.</p>
             </div>
         </section>
+
+        <section id="podija">
+            <h2>ПоДія - Планування та організація</h2>
+            <img src="https://raw.githubusercontent.com/Ihorog/media/main/Podija.png" alt="ПоДія" class="event-image">
+            <p>Організатор подій та заходів, який інтегрований із календарем та галереєю. ПоДія відповідає за планування всіх активностей користувача, будь то робочі зустрічі чи особисті свята.</p>
+            <button class="toggle-btn" onclick="toggleDetails(this)">Детальніше</button>
+            <div class="details">
+                <p><strong>Інтерактивність:</strong> Через чат-бота користувач може легко додати подію до календаря, організувати подію з друзями або родиною.</p>
+                <p><strong>Взаємодія:</strong> ПоДія тісно інтегрована з іншими розділами, наприклад, через галерею для додавання зображень до подій або за допомогою розділу "Маля" для творчих заходів.</p>
+            </div>
+        </section>
+
+        <!-- Додати інші розділи, такі як Настрій, Маля, Календар, Галерея тощо -->
+
     </main>
-    <footer>
-        <p>&copy; 2023 Cimeika. All rights reserved.</p>
-    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
