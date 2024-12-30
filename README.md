@@ -104,3 +104,42 @@ The calendar management and gallery integration features help users manage their
 #### Instructions for Use:
 - **Calendar**: Use the calendar to add and manage events, synchronize with other services, and set reminders.
 - **Gallery**: Upload and organize images, create albums for events, and plan exhibitions.
+
+## Setting up Environment Variables
+
+To set up environment variables for the project, follow these steps:
+
+1. Create a `.env` file in the root directory of the project.
+2. Add the following environment variables to the `.env` file:
+
+```sh
+OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
+FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+PORT=8000
+```
+
+## Running the Project using Docker
+
+To run the project using Docker, follow these steps:
+
+1. Build the Docker image:
+   ```sh
+   docker build -t cimeika-app .
+   ```
+
+2. Run the Docker container:
+   ```sh
+   docker run -p 8000:8000 --env-file .env cimeika-app
+   ```
+
+## Setting up JDK 21 and Ensuring Required Gradle Files are Present
+
+To set up JDK 21 and ensure the required Gradle files are present, follow these steps:
+
+1. Ensure you have the required Gradle files in the repository.
+2. Update the GitHub Actions workflow to include a `check-out` step before setting up JDK 21.
+3. Add a step to ensure the required Gradle files are present in the repository.
+
+### Importance of Required Gradle Files
+
+It is important to have the required Gradle files in the repository to ensure the setup process completes successfully. The `setup-java` action attempts to cache Gradle files, and if no matching files are found, the setup process will fail.
