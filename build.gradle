@@ -1,4 +1,3 @@
-<<<<<<< Tabnine <<<<<<<
 plugins {
     id 'com.android.application' version '8.1.0' apply false
     id 'com.android.library' version '8.1.0' apply false
@@ -8,4 +7,3 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
->>>>>>> Tabnine >>>>>>>// {"conversationId":"0ad88fe6-5d6b-4392-bf60-038b08bc27ef","source":"instruct"}
