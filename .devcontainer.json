@@ -17,7 +17,12 @@
       ]
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-21-jdk && chmod +x gradlew && ./gradlew build",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-21-jdk && chmod +x gradlew && ./gradlew build && pip install -r requirements.txt",
   "forwardPorts": [3000],
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "OPENWEATHERMAP_API_KEY": "your_openweathermap_api_key",
+    "FREEASTROLOGYAPI_API_KEY": "your_freeastrologyapi_api_key",
+    "PORT": "8000"
+  }
 }
