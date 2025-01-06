@@ -143,3 +143,22 @@ To set up JDK 21 and ensure the required Gradle files are present, follow these 
 ### Importance of Required Gradle Files
 
 It is important to have the required Gradle files in the repository to ensure the setup process completes successfully. The `setup-java` action attempts to cache Gradle files, and if no matching files are found, the setup process will fail.
+
+## Adding GitHub Actions Workflow and Documentation
+
+This PR includes the addition of the GitHub Actions workflow and documentation. The workflow automates the build, test, and deployment processes for the Cimeika project. The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities.
+
+### GitHub Actions Workflow
+
+The GitHub Actions workflow is defined in the `.github/workflows/android.yml` file. It includes the following steps:
+
+1. **Checkout Code**: Checks out the code from the repository.
+2. **Set up JDK 21**: Sets up JDK 21 using the `actions/setup-java` action.
+3. **Build with Gradle**: Builds the project using Gradle.
+4. **Run Unit Tests**: Runs the unit tests using Gradle.
+5. **Set up Environment Variables**: Sets up the environment variables for deployment.
+6. **Deploy to Production**: Builds and runs the Docker container for the Cimeika application.
+
+### Documentation
+
+The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities. It includes sections on setting up JDK 21, running the project using Docker, setting environment variables, and using the Ci assistant, event planning, mood tracking, child creativity, calendar management, and gallery integration features.
