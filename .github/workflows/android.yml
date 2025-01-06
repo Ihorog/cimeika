@@ -44,6 +44,17 @@ jobs:
         echo "PORT=8000" >> $GITHUB_ENV
 
     - name: Deploy to production
+      if: ${{ secrets.DEPLOY_TO_PRODUCTION == 'true' }}
       run: |
         docker build -t cimeika-app .
         docker run -d -p 8000:8000 --env-file .env cimeika-app
+
+    - name: Linting and Static Analysis
+      run: ./gradlew lint
+
+    - name: Integration Tests
+      run: ./gradlew integrationTest
+
+    - name: Configure Notifications
+      run: |
+        echo "Build status: ${{ job.status }}" | mail -s "Build Notification" team@example.com

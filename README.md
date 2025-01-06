@@ -2,6 +2,21 @@
 
 Welcome to the Cimeika project! This repository contains the source code and resources for the Cimeika application.
 
+## Table of Contents
+1. [Setting up JDK 21](#setting-up-jdk-21)
+2. [Running the Project using Docker](#running-the-project-using-docker)
+3. [Setting Environment Variables for API Keys](#setting-environment-variables-for-api-keys)
+4. [New Features and Functionalities](#new-features-and-functionalities)
+   - [Ci Assistant](#ci-assistant)
+   - [Event Planning and Organization](#event-planning-and-organization)
+   - [Mood Tracking](#mood-tracking)
+   - [Child Creativity](#child-creativity)
+   - [Calendar Management and Gallery Integration](#calendar-management-and-gallery-integration)
+5. [Setting up Environment Variables](#setting-up-environment-variables)
+6. [Running the Project using Docker](#running-the-project-using-docker-1)
+7. [Setting up JDK 21 and Ensuring Required Gradle Files are Present](#setting-up-jdk-21-and-ensuring-required-gradle-files-are-present)
+8. [Adding GitHub Actions Workflow and Documentation](#adding-github-actions-workflow-and-documentation)
+
 ## Setting up JDK 21
 
 To set up JDK 21 for the project, follow these steps:
@@ -143,3 +158,22 @@ To set up JDK 21 and ensure the required Gradle files are present, follow these 
 ### Importance of Required Gradle Files
 
 It is important to have the required Gradle files in the repository to ensure the setup process completes successfully. The `setup-java` action attempts to cache Gradle files, and if no matching files are found, the setup process will fail.
+
+## Adding GitHub Actions Workflow and Documentation
+
+This PR includes the addition of the GitHub Actions workflow and documentation. The workflow automates the build, test, and deployment processes for the Cimeika project. The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities.
+
+### GitHub Actions Workflow
+
+The GitHub Actions workflow is defined in the `.github/workflows/android.yml` file. It includes the following steps:
+
+1. **Checkout Code**: Checks out the code from the repository.
+2. **Set up JDK 21**: Sets up JDK 21 using the `actions/setup-java` action.
+3. **Build with Gradle**: Builds the project using Gradle.
+4. **Run Unit Tests**: Runs the unit tests using Gradle.
+5. **Set up Environment Variables**: Sets up the environment variables for deployment.
+6. **Deploy to Production**: Builds and runs the Docker container for the Cimeika application.
+
+### Documentation
+
+The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities. It includes sections on setting up JDK 21, running the project using Docker, setting environment variables, and using the Ci assistant, event planning, mood tracking, child creativity, calendar management, and gallery integration features.
