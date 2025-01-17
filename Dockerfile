@@ -14,6 +14,7 @@ COPY .env /app/.env
 # Set environment variables for API keys
 ENV OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 ENV FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+ENV HEALTH_API_KEY=your_health_api_key
 
 # Set environment variables for production
 ENV FLASK_ENV=production
