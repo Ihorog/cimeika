@@ -41,6 +41,7 @@ jobs:
       run: |
         echo "OPENWEATHERMAP_API_KEY=${{ secrets.OPENWEATHERMAP_API_KEY }}" >> $GITHUB_ENV
         echo "FREEASTROLOGYAPI_API_KEY=${{ secrets.FREEASTROLOGYAPI_API_KEY }}" >> $GITHUB_ENV
+        echo "HEALTH_API_KEY=${{ secrets.HEALTH_API_KEY }}" >> $GITHUB_ENV
         echo "PORT=8000" >> $GITHUB_ENV
 
     - name: Deploy to production
