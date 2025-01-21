@@ -72,6 +72,71 @@ paths:
                         finish_reason:
                           type: string
                           example: length
+  /ai/huggingface/completion:
+    post:
+      operationId: createHuggingFaceCompletion
+      summary: Створення запиту до Hugging Face GPT для відповіді у чаті
+      description: Endpoint для створення запиту до Hugging Face GPT для отримання відповіді у чаті
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: Модель GPT на Hugging Face для використання
+                  example: gpt-neo-2.7B
+                prompt:
+                  type: string
+                  description: Запит для моделі GPT
+                  example: Напиши доповідь про сучасні технології штучного інтелекту.
+                max_tokens:
+                  type: integer
+                  description: Максимальна кількість токенів у відповіді
+                  example: 150
+                temperature:
+                  type: number
+                  description: Температура вибірки
+                  example: 0.6
+      responses:
+        "200":
+          description: Відповідь від Hugging Face GPT
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: hf-5t6fN9FPjsMxlm8Zy1dJ1Z7P
+                  object:
+                    type: string
+                    example: text_completion
+                  created:
+                    type: integer
+                    example: 1591685959
+                  model:
+                    type: string
+                    example: gpt-neo-2.7B
+                  choices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        text:
+                          type: string
+                          example: Сучасні технології штучного інтелекту включають глибинне навчання, нейронні мережі та обробку природної мови...
+                        index:
+                          type: integer
+                          example: 0
+                        logprobs:
+                          type: object
+                          nullable: true
+                        finish_reason:
+                          type: string
+                          example: length
   /data/collect:
     post:
       operationId: collectData
@@ -544,6 +609,107 @@ paths:
                     type: string
                     description: Опис астрологічного прогнозу
                     example: Today is a good day for new beginnings.
+  /podia/events:
+    post:
+      operationId: createEvent
+      summary: Створити нову подію
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                eventName:
+                  type: string
+                  description: Назва події
+                  example: День народження
+                eventDate:
+                  type: string
+                  description: Дата події
+                  example: 2023-10-01
+                eventLocation:
+                  type: string
+                  description: Місце проведення події
+                  example: Київ
+                eventNotes:
+                  type: string
+                  description: Додаткові примітки
+                  example: Принести подарунки
+      responses:
+        "201":
+          description: Подія успішно створена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Статус операції
+                    example: success
+  /nastiy/mood:
+    post:
+      operationId: trackMood
+      summary: Відстеження настрою
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mood:
+                  type: string
+                  description: Поточний настрій
+                  example: happy
+                notes:
+                  type: string
+                  description: Додаткові примітки
+                  example: Відчуваю себе чудово
+      responses:
+        "201":
+          description: Настрій успішно відстежено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Статус операції
+                    example: success
+  /mala/creative:
+    post:
+      operationId: uploadCreativeWork
+      summary: Завантаження творчої роботи
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileName:
+                  type: string
+                  description: Назва файлу
+                  example: drawing.jpg
+                fileContent:
+                  type: string
+                  description: Вміст файлу у форматі base64
+                  example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUTEhIVFhUXGBgYGBgYGBgYGBgYGBgXFxgYGBgYHSggGBolHRgYITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0lICYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAADAAIEBQYBB//EADwQAAIBAwMCBAMGBgEFAQAAAAECAwAEEQUSITEGEyJBUWFxgZEykaGxwQgjQlJy0fAVFiQzQ1OCk6Ky4f/EABoBAAIDAQEAAAAAAAAAAAAAAAABAgMEBQb/xAAyEQACAgEDAwMDAwMFAAAAAAAAAQIRAwQSITFBE1FhBRQiMnGBkaGxwdHwFCNC4f/aAAwDAQACEQMRAD8A+0ooor8A//2Q==
+      responses:
+        "201":
+          description: Творча робота успішно завантажена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Статус операції
+                    example: success
 components:
   schemas:
     Component:
