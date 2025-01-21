@@ -544,6 +544,30 @@ paths:
                     type: string
                     description: Опис астрологічного прогнозу
                     example: Today is a good day for new beginnings.
+  /data/feature:
+    get:
+      operationId: getFeatureData
+      summary: Отримати дані функції #
+      parameters:
+        - name: featureId
+          in: query
+          required: true
+          schema:
+            type: string
+            description: ID функції
+            example: feature-12345
+      responses:
+        "200":
+          description: Дані функції успішно отримані
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  featureData:
+                    type: string
+                    description: Дані функції
+                    example: Дані функції #
 components:
   schemas:
     Component:
