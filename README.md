@@ -12,6 +12,7 @@ Welcome to the Cimeika project! This repository contains the source code and res
    - [Mood Tracking](#mood-tracking)
    - [Child Creativity](#child-creativity)
    - [Calendar Management and Gallery Integration](#calendar-management-and-gallery-integration)
+   - [#](#new-feature-#)
 5. [Setting up Environment Variables](#setting-up-environment-variables)
 6. [Running the Project using Docker](#running-the-project-using-docker-1)
 7. [Setting up JDK 21 and Ensuring Required Gradle Files are Present](#setting-up-jdk-21-and-ensuring-required-gradle-files-are-present)
@@ -120,6 +121,17 @@ The calendar management and gallery integration features help users manage their
 #### Instructions for Use:
 - **Calendar**: Use the calendar to add and manage events, synchronize with other services, and set reminders.
 - **Gallery**: Upload and organize images, create albums for events, and plan exhibitions.
+
+### New Feature: #
+
+The new feature "#" allows users to interact with the Cimeika system in a new way. It provides additional capabilities for users, expanding the system's functionality.
+
+#### Functionalities:
+- **New API Endpoint**: A new API endpoint for the "#" feature allows users to access new data and functions related to this feature. This ensures more flexible and interactive interaction with the system.
+
+#### Instructions for Use:
+- **API Endpoint**: Use the new API endpoint to access the functionalities related to the "#" feature.
+- **Integration**: Integrate the new feature with other sections to enhance the overall user experience.
 
 ## Setting up Environment Variables
 
