@@ -16,6 +16,9 @@ def home():
 @app.route('/data/weather')
 def get_weather():
     api_key = os.getenv("OPENWEATHERMAP_API_KEY")
+    if not api_key:
+        logger.error("OPENWEATHERMAP_API_KEY is not set")
+        return jsonify({"error": "OPENWEATHERMAP_API_KEY is not set"}), 500
     city = "London"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     try:
@@ -42,6 +45,9 @@ def get_time():
 @app.route('/data/astrology')
 def get_astrology():
     api_key = os.getenv("FREEASTROLOGYAPI_API_KEY")
+    if not api_key:
+        logger.error("FREEASTROLOGYAPI_API_KEY is not set")
+        return jsonify({"error": "FREEASTROLOGYAPI_API_KEY is not set"}), 500
     sign = "aries"
     url = f"https://api.freeastrologyapi.com/forecast?sign={sign}&apikey={api_key}"
     try:
@@ -57,6 +63,9 @@ def get_astrology():
 @app.route('/data/health')
 def get_health():
     api_key = os.getenv("HEALTH_API_KEY")
+    if not api_key:
+        logger.error("HEALTH_API_KEY is not set")
+        return jsonify({"error": "HEALTH_API_KEY is not set"}), 500
     url = f"https://api.healthdataapi.com/health?apikey={api_key}"
     try:
         response = requests.get(url)
