@@ -51,6 +51,9 @@ Ensure you have the following environment variables set in your `.env` file:
 OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
 HEALTH_API_KEY=your_health_api_key
+GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
+OPENAI_API_KEY=your_openai_api_key
+DROPBOX_API_KEY=your_dropbox_api_key
 ```
 
 ## New Features and Functionalities
@@ -132,6 +135,9 @@ To set up environment variables for the project, follow these steps:
 OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
 HEALTH_API_KEY=your_health_api_key
+GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
+OPENAI_API_KEY=your_openai_api_key
+DROPBOX_API_KEY=your_dropbox_api_key
 PORT=8000
 ```
 
