@@ -8,9 +8,6 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy the application code
 COPY . /app
 
-# Copy the .env file
-COPY .env /app/.env
-
 # Set environment variables for API keys
 ENV OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 ENV FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
