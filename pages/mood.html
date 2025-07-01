@@ -8,19 +8,7 @@
     <script src="../scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="mood.html">Mood</a></li>
-                <li><a href="child.html">Child</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="ci.html">Ci</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
         <section class="mood-chart">
             <h1>Mood Tracker</h1>
@@ -58,5 +46,16 @@
     <footer>
         <p>&copy; 2023 Cimeika. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the header
+            fetch('../components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
 </body>
 </html>
