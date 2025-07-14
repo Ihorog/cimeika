@@ -6,7 +6,7 @@
       "version": "21"
     },
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.9"
+      "version": "3.10"
     }
   },
   "customizations": {
@@ -17,7 +17,13 @@
       ]
     }
   },
-  "postCreateCommand": "sudo apt-get update && chmod +x gradlew && ./gradlew build",
-  "forwardPorts": [3000],
-  "remoteUser": "vscode"
+
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-21-jdk && chmod +x ./gradlew && ./gradlew build && pip install --upgrade pip && pip install -r requirements.txt",
+  "forwardPorts": [8000],
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "OPENWEATHERMAP_API_KEY": "${OPENWEATHERMAP_API_KEY}",
+    "FREEASTROLOGYAPI_API_KEY": "${FREEASTROLOGYAPI_API_KEY}",
+    "PORT": "8000"
+  }
 }

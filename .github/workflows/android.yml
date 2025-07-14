@@ -14,6 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Ensure required Gradle files are present
+      run: |
+        if [ ! -f "build.gradle" ] || [ ! -f "settings.gradle" ]; then
+          echo "Required Gradle files are missing"
+          exit 1
+        fi
+
     - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
@@ -29,3 +36,26 @@ jobs:
 
     - name: Run unit tests
       run: ./gradlew test
+
+    - name: Set up environment variables for deployment
+      run: |
+        echo "OPENWEATHERMAP_API_KEY=${{ secrets.OPENWEATHERMAP_API_KEY }}" >> $GITHUB_ENV
+        echo "FREEASTROLOGYAPI_API_KEY=${{ secrets.FREEASTROLOGYAPI_API_KEY }}" >> $GITHUB_ENV
+        echo "HEALTH_API_KEY=${{ secrets.HEALTH_API_KEY }}" >> $GITHUB_ENV
+        echo "PORT=8000" >> $GITHUB_ENV
+
+    - name: Deploy to production
+      if: ${{ secrets.DEPLOY_TO_PRODUCTION }} == 'true'
+      run: |
+        docker build -t cimeika-app .
+        docker run -d -p 8000:8000 --env-file .env cimeika-app
+
+    - name: Linting and Static Analysis
+      run: ./gradlew lint
+
+    - name: Integration Tests
+      run: ./gradlew integrationTest
+
+    - name: Configure Notifications
+      run: |
+        echo "Build status: ${{ job.status }}" | mail -s "Build Notification" team@example.com
