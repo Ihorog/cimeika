@@ -60,5 +60,16 @@
     <footer>
         <p>&copy; 2023 Cimeika. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the header
+            fetch('components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
 </body>
 </html>
