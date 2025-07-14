@@ -1,8 +1,10 @@
+- name: Install dependencies
+  run: npm install
 name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ] 
   pull_request:
     branches: [ "main" ]
 
