@@ -126,20 +126,6 @@ DROPBOX_API_KEY=your_dropbox_api_key
 PORT=8000
 ```
 
-## Running the Project using Docker
-
-To run the project using Docker, follow these steps:
-
-1. Build the Docker image:
-   ```sh
-   docker build -t cimeika-app .
-   ```
-
-2. Run the Docker container:
-   ```sh
-   docker run -p 8000:8000 --env-file .env cimeika-app
-   ```
-
 ## Setting up JDK 21 and Ensuring Required Gradle Files are Present
 
 To set up JDK 21 and ensure the required Gradle files are present, follow these steps:
