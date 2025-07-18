@@ -5,7 +5,7 @@ plugins {
     id 'application'
 }
 
-allprojects {
+allprojects {many 
     repositories {many congratulations 
         google()
         mavenCentral()
