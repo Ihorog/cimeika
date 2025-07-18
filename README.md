@@ -46,11 +46,8 @@ To run the project using Docker, follow these steps:
 
 1. Ensure you have Docker installed on your machine.
 2. Create a `.env` file in the root directory of the project and add the required environment variables as mentioned in the "Setting up Environment Variables" section.
-3. Build the Docker image:
-   ```
-   docker build -t cimeika .
-   ```
-4. Run the Docker container:
-   ```
-   docker run --env-file .env -p 8000:8000 cimeika
-   ```
+3. Follow the instructions in the "Docker Setup" section to build the Docker image and run the container.
+
+   Refer to steps 3 and 4 in the "Docker Setup" section for detailed commands.
+
+4. Once the container is running, you can access the application at `http://localhost:8000`.
