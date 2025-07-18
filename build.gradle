@@ -6,7 +6,6 @@ plugins {
 }
 
 allprojects {many 
-    repositories {many congratulations 
         google()
         mavenCentral()
     }
