@@ -2,21 +2,6 @@
 
 Welcome to the Cimeika project! This repository contains the source code and resources for the Cimeika application.
 
-## Table of Contents
-1. [Setting up JDK 21](#setting-up-jdk-21)
-2. [Running the Project using Docker](#running-the-project-using-docker)
-3. [Setting Environment Variables for API Keys](#setting-environment-variables-for-api-keys)
-4. [New Features and Functionalities](#new-features-and-functionalities)
-   - [Ci Assistant](#ci-assistant)
-   - [Event Planning and Organization](#event-planning-and-organization)
-   - [Mood Tracking](#mood-tracking)
-   - [Child Creativity](#child-creativity)
-   - [Calendar Management and Gallery Integration](#calendar-management-and-gallery-integration)
-5. [Setting up Environment Variables](#setting-up-environment-variables)
-6. [Running the Project using Docker](#running-the-project-using-docker-1)
-7. [Setting up JDK 21 and Ensuring Required Gradle Files are Present](#setting-up-jdk-21-and-ensuring-required-gradle-files-are-present)
-8. [Adding GitHub Actions Workflow and Documentation](#adding-github-actions-workflow-and-documentation)
-
 ## Setting up JDK 21
 
 To set up JDK 21 for the project, follow these steps:
@@ -140,20 +125,6 @@ OPENAI_API_KEY=your_openai_api_key
 DROPBOX_API_KEY=your_dropbox_api_key
 PORT=8000
 ```
-
-## Running the Project using Docker
-
-To run the project using Docker, follow these steps:
-
-1. Build the Docker image:
-   ```sh
-   docker build -t cimeika-app .
-   ```
-
-2. Run the Docker container:
-   ```sh
-   docker run -p 8000:8000 --env-file .env cimeika-app
-   ```
 
 ## Setting up JDK 21 and Ensuring Required Gradle Files are Present
 
