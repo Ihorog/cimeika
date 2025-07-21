@@ -8,22 +8,10 @@
     <script src="../scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="mood.html">Mood</a></li>
-                <li><a href="child.html">Child</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="ci.html">Ci</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
         <section class="welcome-banner">
-            <img src="../images/logo.png" alt="Cimeika Logo">
+            <img src="../Podija.jpg" alt="Cimeika Logo">
             <h1>Welcome to Cimeika</h1>
             <p>Your journey to a connected and intelligent life starts here.</p>
             <button onclick="startJourney()">Start Journey</button>
@@ -87,6 +75,14 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Load the header
+            fetch('../components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading header:', error));
+
             // Fetch and display real-time weather data
             fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=0dd0656884eea8329f4f432cc0bc8010')
                 .then(response => response.json())
