@@ -40,6 +40,23 @@ GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
 OPENAI_API_KEY=your_openai_api_key
 DROPBOX_API_KEY=your_dropbox_api_key
 ```
+## Pushing to a Hugging Face Space
+
+Use the `push_to_hf.sh` script to mirror the repository to a Hugging Face Space. Create a `.env` file with these variables:
+
+```sh
+GITHUB_REPO_URL=https://github.com/you.repo
+HF_SPACE_URL=https://huggingface.co/spaces/your-user/your-space
+HUGGINGFACE_TOKEN=your_hf_token
+```
+
+Run the script:
+
+```sh
+bash push_to_hf.sh
+```
+
+This will clone the GitHub repository, authenticate with Hugging Face, and push the latest commit to the specified space.
 
 ## New Features and Functionalities
 
@@ -126,9 +143,6 @@ DROPBOX_API_KEY=your_dropbox_api_key
 PORT=8000
 ```
 
-## Running the Project using Docker
-
-To run the project using Docker, follow these steps:
 
 1. Build the Docker image:
    ```sh
@@ -137,8 +151,7 @@ To run the project using Docker, follow these steps:
 
 2. Run the Docker container:
    ```sh
-   docker run -p 8000:8000 --env-file .env cimeika-app
-   ```
+   docker run -p 8000:8000 --env-fi
 ## Setting up JDK 21 and Ensuring Required Gradle Files are Present
 
 To set up JDK 21 and ensure the required Gradle files are present, follow these steps:
