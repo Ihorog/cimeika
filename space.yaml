@@ -1,5 +1,5 @@
 sdk: docker
-repository: Ihorog/cimeika
+repository: Ihorog/cimeika_gifhub
 title: Cimeika Project
 emoji: 🚀
 colorFrom: blue
