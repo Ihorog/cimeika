@@ -143,6 +143,15 @@ DROPBOX_API_KEY=your_dropbox_api_key
 PORT=8000
 ```
 
+
+1. Build the Docker image:
+   ```sh
+   docker build -t cimeika-app .
+   ```
+
+2. Run the Docker container:
+   ```sh
+   docker run -p 8000:8000 --env-fi
 ## Setting up JDK 21 and Ensuring Required Gradle Files are Present
 
 To set up JDK 21 and ensure the required Gradle files are present, follow these steps:
@@ -173,3 +182,4 @@ The GitHub Actions workflow is defined in the `.github/workflows/android.yml` fi
 ### Documentation
 
 The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities. It includes sections on setting up JDK 21, running the project using Docker, setting environment variables, and using the Ci assistant, event planning, mood tracking, child creativity, calendar management, and gallery integration features.
+
