@@ -45,7 +45,7 @@ DROPBOX_API_KEY=your_dropbox_api_key
 Use the `push_to_hf.sh` script to mirror the repository to a Hugging Face Space. Create a `.env` file with these variables:
 
 ```sh
-GITHUB_REPO_URL=https://github.com/your-user/your-repo.git
+GITHUB_REPO_URL=https://github.com/you.repo
 HF_SPACE_URL=https://huggingface.co/spaces/your-user/your-space
 HUGGINGFACE_TOKEN=your_hf_token
 ```
