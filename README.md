@@ -40,6 +40,23 @@ GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
 OPENAI_API_KEY=your_openai_api_key
 DROPBOX_API_KEY=your_dropbox_api_key
 ```
+## Pushing to a Hugging Face Space
+
+Use the `push_to_hf.sh` script to mirror the repository to a Hugging Face Space. Create a `.env` file with these variables:
+
+```sh
+GITHUB_REPO_URL=https://github.com/your-user/your-repo.git
+HF_SPACE_URL=https://huggingface.co/spaces/your-user/your-space
+HUGGINGFACE_TOKEN=your_hf_token
+```
+
+Run the script:
+
+```sh
+bash push_to_hf.sh
+```
+
+This will clone the GitHub repository, authenticate with Hugging Face, and push the latest commit to the specified space.
 
 ## New Features and Functionalities
 
