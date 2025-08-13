@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Section from "../components/Section";
 
 export default function HomePage() {
   const [weather, setWeather] = useState("Loading...");
@@ -90,8 +91,7 @@ export default function HomePage() {
         </a>
       </section>
 
-      <section className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Дані в реальному часі</h2>
+      <Section title="Дані в реальному часі">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div className="border border-black rounded p-4">
             <h3 className="font-semibold mb-2">Погода</h3>
@@ -106,7 +106,7 @@ export default function HomePage() {
             <p>{astrology}</p>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }
