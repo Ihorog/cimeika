@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial load of the home page
     loadPage('pages/home.html');
 
-    // Fetch and display real-time weather data
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${process.env.OPENWEATHERMAP_API_KEY}`)
+    // Fetch and display real-time weather data via Next.js API route
+    fetch(`/api/weather?city=London`)
         .then(response => response.json())
         .then(data => {
             document.getElementById('weather-data').textContent = `${data.weather[0].description}, ${data.main.temp}°C`;
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('time-data').textContent = now.toLocaleTimeString();
     }, 1000);
 
-    // Fetch and display real-time astrological data
-    fetch(`https://api.freeastrologyapi.com/forecast?sign=aries&apikey=${process.env.FREEASTROLOGYAPI_API_KEY}`)
+    // Fetch and display real-time astrological data via Next.js API route
+    fetch(`/api/astrology?sign=aries`)
         .then(response => response.json())
         .then(data => {
             document.getElementById('astrology-data').textContent = data.forecast;
