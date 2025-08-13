@@ -1,4 +1,4 @@
-# Cimeika
+.# Cimeika
 
 Welcome to the Cimeika project! This repository contains the source code and resources for the Cimeika application.
 
