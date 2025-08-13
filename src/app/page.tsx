@@ -10,7 +10,7 @@ export default function HomePage() {
   useEffect(() => {
     // Fetch weather data
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=0dd0656884eea8329f4f432cc0bc8010&units=metric"
+      `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +25,7 @@ export default function HomePage() {
 
     // Fetch astrology data (dummy example)
     fetch(
-      "https://api.freeastrologyapi.com/forecast?sign=aries&apikey=SI4I4N5GJ32gRX5iSL1Qea4TqgDtIy8o9RyvDfxW"
+      `https://api.freeastrologyapi.com/forecast?sign=aries&apikey=${process.env.NEXT_PUBLIC_ASTROLOGY_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
