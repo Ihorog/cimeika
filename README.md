@@ -30,11 +30,11 @@ To run the project using Docker, follow these steps:
 
 ## Setting Environment Variables for API Keys
 
-Ensure you have the following environment variables set in your `.env` file:
+Copy `.env.example` to `.env` and set the following environment variables:
 
 ```sh
-OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
-FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_openweathermap_api_key
+NEXT_PUBLIC_ASTROLOGY_API_KEY=your_freeastrologyapi_api_key
 HEALTH_API_KEY=your_health_api_key
 GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
 OPENAI_API_KEY=your_openai_api_key
@@ -130,12 +130,12 @@ The calendar management and gallery integration features help users manage their
 
 To set up environment variables for the project, follow these steps:
 
-1. Create a `.env` file in the root directory of the project.
+1. Create a `.env` file in the root directory of the project (you can start by copying `.env.example`).
 2. Add the following environment variables to the `.env` file:
 
 ```sh
-OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
-FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_openweathermap_api_key
+NEXT_PUBLIC_ASTROLOGY_API_KEY=your_freeastrologyapi_api_key
 HEALTH_API_KEY=your_health_api_key
 GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
 OPENAI_API_KEY=your_openai_api_key
