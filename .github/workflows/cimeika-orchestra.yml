@@ -1,0 +1,73 @@
+name: "🎼 CIMEIKA Orchestra Deployment"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force_rollback:
+        description: 'Force rollback to previous checkpoint'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: "🎭 Checkout Repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "🎪 Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: "🎯 Setup Orchestra Environment"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          BACKEND_API_BASE: ${{ secrets.BACKEND_API_BASE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          chmod +x ./cimeika-orchestra.sh
+          echo "Orchestra environment configured"
+
+      - name: "🎼 Execute Full Orchestration"
+        if: ${{ !inputs.force_rollback }}
+        run: |
+          ./cimeika-orchestra.sh start
+
+      - name: "🔄 Execute Rollback"
+        if: ${{ inputs.force_rollback }}
+        run: |
+          ./cimeika-orchestra.sh rollback latest
+
+      - name: "📊 Upload Orchestra Logs"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orchestra-logs
+          path: /tmp/cimeika-orchestra-*.log
+
+      - name: "📋 Upload State Files"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orchestra-state
+          path: /tmp/cimeika-*-state.json
+
+      - name: "🚨 Notify on Failure"
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" \
+            -d text="🚨 CIMEIKA Orchestra deployment FAILED in GitHub Actions. Check logs for details."
