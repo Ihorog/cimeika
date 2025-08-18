@@ -30,6 +30,9 @@ GitHub репозиторії:
 
 Бекенд/ядро: cimeika
 
+README_quickstart.md — інструкції з локального запуску та деплою.
+cimeika.config.yaml — централізовані налаштування API, ключів та режимів.
+
 Secrets (HF Variables):
 
 OPENAI_KEY_CI
@@ -81,9 +84,9 @@ ENV=staging|prod
 
 - Лінтинг (eslint, prettier)
 - Тести (jest, playwright)
-- Деплой у Hugging Face Space
+- Деплой у Hugging Face Space (див. README_quickstart.md)
 
-Звіт по QA: Lighthouse + мобільна перевірка FPS, контрасту, payload.
+Звіт по QA: Lighthouse + мобільна перевірка FPS, контрасту, payload (шаблон `mobile-QA-report.md`).
 
 ---
 
