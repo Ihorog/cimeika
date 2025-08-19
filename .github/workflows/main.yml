@@ -24,3 +24,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Dry run refresh weights pipeline
+        run: python scripts/refresh_weights.py --dry-run
