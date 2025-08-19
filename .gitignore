@@ -1,4 +1,5 @@
 # Ignore sensitive API keys file
 api_keys.json
 .env
-logs/pipeline.log
+node_modules/
+dist/
