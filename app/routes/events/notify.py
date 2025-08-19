@@ -20,8 +20,15 @@ def notify():
     """
     payload = request.get_json(silent=True) or {}
     message = payload.get('message')
-    if not message:
-        return jsonify({'error': 'message is required'}), 400
+
+    # Stricter payload validation for 'message'
+    if not isinstance(message, str):
+        return jsonify({'error': "'message' must be a string"}), 400
+    if not message.strip():
+        return jsonify({'error': "'message' must be a non-empty string"}), 400
+    MAX_MESSAGE_LENGTH = 500
+    if len(message) > MAX_MESSAGE_LENGTH:
+        return jsonify({'error': f"'message' must not exceed {MAX_MESSAGE_LENGTH} characters"}), 400
 
     results = {}
 
