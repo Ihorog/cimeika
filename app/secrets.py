@@ -15,9 +15,7 @@ def resolve_secret(key: str):
     Returns:
         The secret value as a string or None if not found.
     """
-    # First check environment variables
-    value = os.getenv(key)
-    if value:
+    if value := os.getenv(key):
         return value
 
     # Then check api_keys.json if it exists
