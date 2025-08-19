@@ -1,29 +1,38 @@
-.# Cimeika
+# Cimeika
 
 Welcome to the Cimeika project! This repository contains the source code and resources for the Cimeika application.
 
-## Setting up JDK 21
+## Project Structure
+- `src/app` – main Next.js application.
+- `src/components` – shared React components.
+- `pages/` – additional application pages.
+- `components/` – legacy UI elements.
+- `docs/` – documentation and guides.
+- `cimeika-orchestra.sh` – deployment utility scripts.
+- `Dockerfile` – container configuration.
 
-To set up JDK 21 for the project, follow these steps:
+## Getting Started
+### Prerequisites
+- Node.js and npm
+- JDK 21 (required for Gradle tasks and GitHub Actions)
 
-1. Ensure you have the required Gradle files in the repository.
-2. Update the GitHub Actions workflow to include a `check-out` step before setting up JDK 21.
-3. Add a step to ensure the required Gradle files are present in the repository.
+### Installation
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Start the development server:
+   ```sh
+   npm run dev
+   ```
+   The app will be available at `http://localhost:8000`.
 
-### Importance of Required Gradle Files
-
-It is important to have the required Gradle files in the repository to ensure the setup process completes successfully. The `setup-java` action attempts to cache Gradle files, and if no matching files are found, the setup process will fail.
-
-## Running the Project using Docker
-
-To run the project using Docker, follow these steps:
-
-1. Build the Docker image:
+### Running with Docker
+1. Build the image:
    ```sh
    docker build -t cimeika-app .
    ```
-
-2. Run the Docker container:
+2. Run the container:
    ```sh
    docker run -p 8000:8000 --env-file .env cimeika-app
    ```
@@ -39,19 +48,17 @@ HEALTH_API_KEY=your_health_api_key
 GOOGLE_CALENDAR_API_KEY=your_google_calendar_api_key
 OPENAI_API_KEY=your_openai_api_key
 DROPBOX_API_KEY=your_dropbox_api_key
+PORT=8000
 ```
+
 ## Pushing to a Hugging Face Space
-
-Use the `push_to_hf.sh` script to mirror the repository to a Hugging Face Space. Create a `.env` file with these variables:
-
+Use the `push_to_hf.sh` script to mirror the repository to a Hugging Face Space. Add the following variables to `.env`:
 ```sh
 GITHUB_REPO_URL=https://github.com/you.repo
 HF_SPACE_URL=https://huggingface.co/spaces/your-user/your-space
 HUGGINGFACE_TOKEN=your_hf_token
 ```
-
 Run the script:
-
 ```sh
 bash push_to_hf.sh
 ```
@@ -183,3 +190,5 @@ The GitHub Actions workflow is defined in the `.github/workflows/android.yml` fi
 
 The documentation provides detailed instructions on setting up the environment, running the project, and using the new features and functionalities. It includes sections on setting up JDK 21, running the project using Docker, setting environment variables, and using the Ci assistant, event planning, mood tracking, child creativity, calendar management, and gallery integration features.
 
+## GitHub Actions Workflow
+The `.github/workflows/android.yml` workflow checks out the code, sets up JDK 21, builds with Gradle, runs tests, and deploys the Docker container.
