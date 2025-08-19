@@ -9,6 +9,14 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Register blueprints
+try:
+    from .routes.events.notify import bp as notify_bp
+    app.register_blueprint(notify_bp)
+except Exception as e:
+    # In environments where the route cannot be imported, log and continue
+    logger.warning(f"Failed to register notify blueprint: {e}")
+
 @app.route('/')
 def home():
     return "Welcome to the Cimeika API!"
@@ -139,7 +147,3 @@ def upload_creative_work():
     except requests.exceptions.RequestException as e:
         logger.error(f"Error uploading creative work: {e}")
         return jsonify({"error": "Failed to upload creative work"}), 500
-
-if __name__ == '__main__':
-    port = int(os.getenv("PORT", 8000))
-    app.run(host='0.0.0.0', port=port)

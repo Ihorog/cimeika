@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info
+node_modules
+.git
+.gitignore
+Dockerfile.orchestra
+package-lock.json
+package.json
