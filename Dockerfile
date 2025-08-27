@@ -1,18 +1,9 @@
 # Use python:3.9-slim as the base image
 FROM python:3.9-slim
 
-# Set the working directory
-WORKDIR /app
-
 # Copy requirements.txt and install dependencies
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
-
-# Install openjdk-21-jdk
-RUN apt-get update && apt-get install -y openjdk-21-jdk
-
-# Install gradle
-RUN apt-get update && apt-get install -y gradle
 
 # Copy the application code
 COPY . /app
@@ -30,4 +21,4 @@ ENV PORT=8000
 EXPOSE 8000
 
 # Set the entry point to run the Flask app
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

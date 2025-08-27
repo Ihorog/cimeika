@@ -48,15 +48,3 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching astrological data:', error));
 });
-
-/* Функція для перемикання видимості деталей */
-function toggleDetails(button) {
-    const details = button.nextElementSibling;
-    if (details.classList.contains('show')) {
-        details.classList.remove('show');
-        button.textContent = "Детальніше";
-    } else {
-        details.classList.add('show');
-        button.textContent = "Згорнути";
-    }
-}
