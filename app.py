@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
 import os
 import logging
@@ -11,12 +11,12 @@ logger = logging.getLogger(__name__)
 
 @app.route('/')
 def home():
-    return "Welcome to the Cimeika API!"
+    return jsonify({"message": "Welcome to the Cimeika API!"})
 
 @app.route('/data/weather')
 def get_weather():
     api_key = os.getenv("OPENWEATHERMAP_API_KEY")
-    city = "London"
+    city = request.args.get("city", "London")
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     try:
         response = requests.get(url)
@@ -42,7 +42,7 @@ def get_time():
 @app.route('/data/astrology')
 def get_astrology():
     api_key = os.getenv("FREEASTROLOGYAPI_API_KEY")
-    sign = "aries"
+    sign = request.args.get("sign", "aries")
     url = f"https://api.freeastrologyapi.com/forecast?sign={sign}&apikey={api_key}"
     try:
         response = requests.get(url)
@@ -67,6 +67,10 @@ def get_health():
     except requests.exceptions.RequestException as e:
         logger.error(f"Error fetching health data: {e}")
         return jsonify({"error": "Failed to fetch health data"}), 500
+
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "healthy"})
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT", 8000))
