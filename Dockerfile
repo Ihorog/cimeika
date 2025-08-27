@@ -20,9 +20,14 @@ COPY . /app
 # Set environment variables for API keys
 ENV OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 ENV FREEASTROLOGYAPI_API_KEY=your_freeastrologyapi_api_key
+ENV HEALTH_API_KEY=your_health_api_key
 
-# Expose port 8000
+# Set environment variables for production
+ENV FLASK_ENV=production
+ENV PORT=8000
+
+# Expose the port the app runs on
 EXPOSE 8000
 
 # Set the entry point to run the Flask app
-CMD ["python", "/app/app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"
