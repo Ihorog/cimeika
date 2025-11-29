@@ -1,0 +1,44 @@
+manifest:
+  modules:
+    - id: ci_core
+      description: "Central orchestrator and logic of the Cimeika ecosystem. Handles event routing, state management and coordination across modules."
+    - id: ci_llm
+      description: "Auto‑configurator for connecting any OpenAI‑compatible API (LocalAI, Ollama, OpenAI, OpenRouter, xAI). Saves configuration in browser localStorage."
+    - id: ci_llm_console
+      description: "React console (Tailwind/Shadcn) for configuring LLM endpoints. Provides input fields for base URL, API key, model, and system prompt with persistent storage."
+    - id: ci_llm_tester_pro
+      description: "Interactive tester for sending prompts to the configured LLM. Includes history panel with request/response logs and ability to resend requests and clear history."
+    - id: ci_orchestrator
+      description: "Orchestration layer linking modules, event bus and UI. Provides control logic for time states (було/є/буде) and resonance signalling."
+    - id: ci_sensomatyka
+      description: "Sense‑based model library defining state transitions, resonances and transformations across modules (alchemical, mathematical, linguistic)."
+    - id: ci_design
+      description: "Visual theme and design assets for Cimeika (Cimeika Origin palette, icons, gradients)."
+    - id: ci_modules
+      description: "List and descriptions of existing modules: ПоДія (events), Настрій (mood), Маля (creativity), Казкар (legend), Календар (time), Галерея (gallery)."
+    - id: ci_strategy
+      description: "High‑level strategy and roadmap for the Cimeika ecosystem."
+  sources:
+    - name: cimeika-main
+      repo: "github.com/Ihorog/cimeika"
+      features:
+        - "Next.js application containing core modules and UI components; described structure includes src/app (main app), src/components (shared React components), pages (additional pages), docs (documentation)【816388113101483†L0-L13】."
+        - "Provides instructions for setting up environment variables and Docker deployment; uses Node.js, JDK 21, and defines environment variables for weather, astrology, health, calendar, OpenAI and Dropbox APIs【816388113101483†L40-L52】."
+        - "Contains detailed documentation for modules: Ci assistant, event planning, mood tracking, child creativity, calendar management and gallery integration【816388113101483†L70-L168】."
+    - name: cimeika-real-time-data-app
+      repo: "github.com/Ihorog/cimeika-real-time-data-app"
+      features:
+        - "Express server providing real‑time data (weather, time, astrology) via API; uses axios, express and dotenv【152223468678395†L48-L67】."
+        - "Includes API documentation (cimeika-api.yaml) and supports Swagger UI at /docs; project structure lists public HTML templates and openapi spec【152223468678395†L134-L146】."
+        - "Deployment scripts for pushing to Hugging Face Spaces; outlines environment variables and test instructions【152223468678395†L173-L209】."
+    - name: ciwiki
+      repo: "github.com/Ihorog/ciwiki"
+      description: "Knowledge base repository containing theoretical materials, myths, images and research for Cimeika. Emphasises gathering materials for legend and structuring space into seven branches (Kazkar, Podija, Malya, Nastrij, Gallery, Calendar, Ci)【575320922657641†L6-L19】; includes a mermaid graph of these connections【575320922657641†L32-L47】."
+    - name: workflow
+      repo: "github.com/Ihorog/workflow-"
+      description: "Repository of GitHub Actions workflows and scripts enabling ChatGPT integration via OpenAI API. The readme details how to add API keys as secrets and run workflows; includes bot.py for listing, creating and deleting repository files【555116431971042†L6-L24】."
+  actions:
+    - "Scan existing files and modules in the local environment to build a manifest of available assets."
+    - "Moderate and validate content to ensure narrative, design and code consistency across modules."
+    - "Generate the `ci-integrated` directory containing consolidated modules (LLM console, tester, orchestrator, design and sense files)."
+    - "Prepare commit and pull request metadata for synchronising the integrated modules back to the repository, pending user confirmation."
