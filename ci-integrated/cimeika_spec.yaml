@@ -1,0 +1,144 @@
+CIMEIKA_SPEC:
+  version: "1.0"
+  codename: "OACPS–Ci"
+  date: "2025-11-29"
+  author: "Ci Integrator System"
+  repository: "https://github.com/Ihorog/cimeika"
+
+  description: >
+    Оркестрований автоматизований комплекс програмних засобів Cimeika —
+    інтегрована сенсоматика, аналітика, API-шлюзи, інтерфейси та креативні
+    модулі, що утворюють цілісну систему розумних взаємодій між людиною,
+    даними й простором подій.
+
+  core:
+    id: "ci_core"
+    role: "центральний оркестратор сенсів і процесів"
+    engine: "Python / FastAPI / Next.js"
+    logic:
+      - "контроль потоків подій (було–є–буде)"
+      - "керування станами та тригерами"
+      - "інтеграція модулів через REST та internal API"
+      - "commit reality → переведення можливого в наявне"
+
+  orchestrator:
+    file: "orchestrator.py"
+    purpose: "координація чату, API, сесій, дій користувача"
+    events:
+      - "start_session"
+      - "resonance_update"
+      - "commit_reality"
+    outputs: ["ci_session_log.json", "ci_trace.db"]
+
+  sensomatyka:
+    file: "ci_sensomatyka.md"
+    description: "сенсове ядро, координати часу і станів"
+    model:
+      - "0→1 — поява з відсутності"
+      - "−→+ — зміна полюса"
+      - "🔴⚪🔵 — булоєбуде"
+    resonance_fields:
+      - "свідомість"
+      - "емоція"
+      - "інформація"
+      - "енергія"
+
+  modules:
+    - name: "ПоДія"
+      id: "ci_podia"
+      role: "майбутнє, планування подій"
+      api: "/podia/events"
+    - name: "Настрій"
+      id: "ci_nastriy"
+      role: "емоційна аналітика і стан користувача"
+      api: "/nastiy/mood"
+    - name: "Маля"
+      id: "ci_malya"
+      role: "творчий процес, художня генерація"
+      api: "/mala/creative"
+    - name: "Казкар"
+      id: "ci_kazkar"
+      role: "легенди, міфи, наративи Ci"
+      api: "/kazkar/story"
+    - name: "Календар"
+      id: "ci_calendar"
+      role: "вузли часу, синхронізація"
+      api: "/calendar/nodes"
+    - name: "Галерея"
+      id: "ci_gallery"
+      role: "візуальна пам’ять, креативні серії"
+      api: "/gallery/frames"
+
+  llm_gateway:
+    name: "Ci-LLM"
+    description: "універсальний автоконфігуратор OpenAI-сумісних API"
+    frontend: "ci_llm_config.html"
+    runtime: "Next.js / React / Tailwind"
+    storage: "localStorage"
+    supported_backends:
+      - "OpenAI"
+      - "Ollama"
+      - "LocalAI"
+      - "OpenRouter"
+      - "xAI"
+    interface:
+      - "baseUrl"
+      - "apiKey"
+      - "model"
+      - "sysPrompt"
+
+  orchestration_layers:
+    - layer: "Frontend UX"
+      tech: ["Next.js", "Tailwind", "shadcn/ui"]
+      entry_point: "/app/ci_home_chat_orchestrated.py"
+    - layer: "Backend API"
+      tech: ["FastAPI", "HuggingFace", "OpenRouter"]
+    - layer: "Data"
+      tech: ["Markdown memory", "YAML configs", "SQLite"]
+    - layer: "Sense"
+      tech: ["Resonance model", "Ci field", "state machines"]
+
+  integrations:
+    apis:
+      - "OpenAI"
+      - "HuggingFace"
+      - "Google AI Studio"
+      - "Telegram Bots"
+      - "GitHub Actions"
+      - "Cimeika Site"
+    data_endpoints:
+      - "weather"
+      - "astrology"
+      - "realtime"
+    security:
+      .env_keys:
+        - "OPENAI_API_KEY"
+        - "HF_TOKEN"
+        - "CIMEIKA_ACCESS_KEY"
+        - "TELEGRAM_BOT_TOKEN"
+
+  deployment:
+    environments:
+      - "local"
+      - "cloud"
+      - "huggingface-space"
+    automation:
+      - "GitHub → HF auto-sync"
+      - "Cimeika Memory → Cloud persistence"
+      - "LLM endpoint self-check"
+
+  roadmap:
+    - "✅ узгодження технічної архітектури"
+    - "🧩 збірка ci-integrated"
+    - "🚀 публікація на GitHub (auto-sync-ci)"
+    - "🌐 HuggingFace Space API"
+    - "🎨 оновлення дизайну Ci Origin"
+    - "🤓 сенсовий моніторинг у реальному часі"
+
+  visual_identity:
+    palette:
+      base: ["синій небесний", "золотий теплий"]
+      accent: ["бірюзовий", "білий"]
+    symbol: "🔴⚪🔵"
+    sound: "111Hz → 222Hz → 333Hz"
+    resonance_code: "БУЛОЄБУДЕ"
