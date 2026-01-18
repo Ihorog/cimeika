@@ -74,6 +74,37 @@ paths:
                           example: length
         "400":
           description: Невірний запит
+  /ai/huggingface/completion:
+    post:
+      operationId: createHuggingFaceCompletion
+      summary: Створення запиту до Hugging Face GPT для відповіді у чаті
+      description: Endpoint для створення запиту до Hugging Face GPT для отримання відповіді у чаті
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: Модель GPT на Hugging Face для використання
+                  example: gpt-neo-2.7B
+                prompt:
+                  type: string
+                  description: Запит для моделі GPT
+                  example: Напиши доповідь про сучасні технології штучного інтелекту.
+                max_tokens:
+                  type: integer
+                  description: Максимальна кількість токенів у відповіді
+                  example: 150
+                temperature:
+                  type: number
+                  description: Температура вибірки
+                  example: 0.6
+      responses:
+        "200":
+          description: Відповідь від Hugging Face GPT
           content:
             application/json:
               schema:
