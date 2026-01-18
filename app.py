@@ -2,18 +2,34 @@ import os
 from flask import Flask, jsonify, request
 import requests
 import logging
+from flask_caching import Cache
 
 app = Flask(__name__)
+
+# Configure caching
+cache = Cache(app, config={'CACHE_TYPE': 'simple', 'CACHE_DEFAULT_TIMEOUT': 600})
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+def cache_response(func):
+    def wrapper(*args, **kwargs):
+        cache_key = f"{func.__name__}_{args}_{kwargs}"
+        cached_response = cache.get(cache_key)
+        if cached_response:
+            return cached_response
+        response = func(*args, **kwargs)
+        cache.set(cache_key, response)
+        return response
+    return wrapper
 
 @app.route('/')
 def home():
     return "Welcome to the Cimeika API!"
 
 @app.route('/data/weather')
+@cache_response
 def get_weather():
     api_key = os.getenv('OPENWEATHERMAP_API_KEY')
     city = "London"
@@ -33,6 +49,7 @@ def get_time():
     return jsonify({"time": now.isoformat()})
 
 @app.route('/data/astrology')
+@cache_response
 def get_astrology():
     api_key = os.getenv('FREEASTROLOGYAPI_API_KEY')
     sign = "aries"
