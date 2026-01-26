@@ -77,3 +77,137 @@ It is important to have the required Gradle files in the repository to ensure th
    ```
 
 By following these detailed steps, you can ensure that the required Gradle files are present in your project and that your GitHub Actions workflow is correctly configured to use them.
+
+## Setting Environment Variables for API Keys
+
+To improve security, replace hardcoded API keys with environment variables. Follow these steps to set up environment variables for API keys:
+
+1. **Set Environment Variables in Dockerfile**: Ensure that the `Dockerfile` sets the environment variables for the API keys. Here is an example:
+   ```dockerfile
+   # Set environment variables for API keys
+   ENV OPENWEATHERMAP_API_KEY=""
+   ENV FREEASTROLOGYAPI_API_KEY=""
+   ```
+
+2. **Use Environment Variables in `app.py`**: Update the `app.py` file to use the environment variables for the API keys. Here is an example:
+   ```python
+   import os
+
+   api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+   ```
+
+3. **Set Environment Variables Locally**: When running the application locally, set the environment variables in your terminal or development environment. Here is an example for setting environment variables in a Unix-based terminal:
+   ```sh
+   export OPENWEATHERMAP_API_KEY="your_openweathermap_api_key"
+   export FREEASTROLOGYAPI_API_KEY="your_freeastrologyapi_api_key"
+   ```
+
+By following these steps, you can ensure that the API keys are securely managed using environment variables.
+
+## Verifying Component Dependencies
+
+To verify the dependencies of all components, you can use the new `/components/verify` endpoint. This endpoint checks all component dependencies and returns a status indicating whether the dependencies are verified.
+
+### Using the `/components/verify` Endpoint
+
+1. **Endpoint URL**: `/components/verify`
+2. **Method**: GET
+3. **Response**:
+   - `dependencies_verified`: A boolean indicating whether the dependencies are verified.
+
+### Example Request
+
+```sh
+curl -X GET "http://localhost:8000/components/verify"
+```
+
+### Example Response
+
+```json
+{
+  "dependencies_verified": true
+}
+```
+
+By using this endpoint, you can ensure that all component dependencies are verified and functioning correctly.
+
+## Logging Functionality
+
+The application now includes logging functionality to capture the success or failure of data collection operations. This helps in monitoring and debugging the application.
+
+### Using the Logging Functionality
+
+1. **Weather Data Collection**: Logs the success or failure of fetching weather data.
+2. **Astrology Data Collection**: Logs the success or failure of fetching astrology data.
+3. **Logging Collected Data**: The `/data/log` endpoint allows logging of collected data.
+
+### Example Log Messages
+
+- **Weather Data Collection**:
+  - Success: "Weather data fetched successfully"
+  - Failure: "Failed to fetch weather data"
+
+- **Astrology Data Collection**:
+  - Success: "Astrology data fetched successfully"
+  - Failure: "Failed to fetch astrology data"
+
+- **Logging Collected Data**:
+  - Success: "Data logged successfully: {dataId}, {logDetails}"
+  - Failure: "Invalid log data"
+
+## Optimizing Code Based on Logs
+
+By analyzing the logs, you can identify and fix errors, optimize performance, and improve the overall reliability of the application.
+
+### Steps to Optimize Code Based on Logs
+
+1. **Identify Errors**: Review the log messages to identify any errors or failures in data collection or other operations.
+2. **Analyze Performance**: Look for patterns in the logs that indicate performance bottlenecks or inefficiencies.
+3. **Implement Fixes**: Based on the analysis, implement fixes to address the identified issues.
+4. **Monitor Improvements**: Continue to monitor the logs to ensure that the implemented fixes have resolved the issues and improved performance.
+
+By following these steps, you can continuously optimize the code and enhance the application's reliability and performance.
+
+## Caching Functionality
+
+The application now includes caching functionality to improve performance and reduce the load on external APIs. The `flask-caching` library is used to cache the responses of the weather and astrology endpoints for 10 minutes.
+
+### Using the Caching Functionality
+
+1. **Weather Data Caching**: The `/data/weather` endpoint caches the weather data for 10 minutes.
+2. **Astrology Data Caching**: The `/data/astrology` endpoint caches the astrology data for 10 minutes.
+
+### Example Cache Configuration
+
+The cache is configured in the `app.py` file as follows:
+
+```python
+from flask_caching import Cache
+
+app = Flask(__name__)
+
+# Configure caching
+cache = Cache(app, config={'CACHE_TYPE': 'simple', 'CACHE_DEFAULT_TIMEOUT': 600})
+```
+
+### Example Cached Endpoint
+
+The `get_weather` function is decorated with a caching decorator to cache the response:
+
+```python
+@app.route('/data/weather')
+@cache_response
+def get_weather():
+    api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+    city = "London"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        logger.error("Failed to fetch weather data")
+        return jsonify({"error": "Failed to fetch weather data"}), response.status_code
+    data = response.json()
+    logger.info("Weather data fetched successfully")
+    return jsonify(data)
+```
+
+By using caching, the application can reduce the number of requests to external APIs and improve response times for frequently accessed endpoints.
