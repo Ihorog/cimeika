@@ -1,11 +1,11 @@
 {
-    "OpenAI_Ci": "${{ secrets.OPENAI_CI_API_KEY }}",
-    "OpenAI_Cimeika": "${{ secrets.OPENAI_CIMEIKA_API_KEY }}",
-    "GitHub": "${{ secrets.GITHUB_API_KEY }}",
-    "Telegram": "${{ secrets.TELEGRAM_BOT_API_KEY }}",
-    "ADM.Tools": "${{ secrets.ADM_TOOLS_API_KEY }}",
-    "Microsoft": "${{ secrets.MICROSOFT_API_KEY }}",
-    "OpenWeatherMap": "${{ secrets.OPENWEATHERMAP_API_KEY }}",
-    "FreeAstrologyAPI": "${{ secrets.FREEASTROLOGYAPI_API_KEY }}",
-    "Unsplash": "${{ secrets.UNSPLASH_API_KEY }}"
+    "OpenAI_Ci": "<OPENAI_CI_API_KEY>",
+    "OpenAI_Cimeika": "<OPENAI_CIMEIKA_API_KEY>",
+    "GitHub": "<GITHUB_API_KEY>",
+    "Telegram": "<TELEGRAM_BOT_API_KEY>",
+    "ADM.Tools": "<ADM_TOOLS_API_KEY>",
+    "Microsoft": "<MICROSOFT_API_KEY>",
+    "OpenWeatherMap": "<OPENWEATHERMAP_API_KEY>",
+    "FreeAstrologyAPI": "<FREEASTROLOGYAPI_API_KEY>",
+    "Unsplash": "<UNSPLASH_API_KEY>"
 }
